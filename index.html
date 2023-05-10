@@ -14,7 +14,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="https://esrkr.github.io/prokoni/">
+  <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -34,12 +34,76 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '484266406';
+    var serviceWorkerVersion = '1070395321';
   </script>
+  <style>
+  .loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loading-dot {
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #FFC107; /* Amber color */
+    opacity: 0;
+    animation: loading 0.651s infinite;
+  }
+
+  .loading-dot:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .loading-dot:nth-child(2) {
+    animation-delay: 0.13s;
+  }
+
+  .loading-dot:nth-child(3) {
+    animation-delay: 0.26s;
+  }
+
+  @keyframes loading {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    25% {
+      opacity: 1;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    75% {
+      opacity: 1;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+  </style>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
 <body>
+<div class="loading-container">
+  <div class="loading-dot"></div>
+  <div class="loading-dot"></div>
+  <div class="loading-dot"></div>
+</div>
+<script src="main.dart.js" type="application/javascript"></script>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
